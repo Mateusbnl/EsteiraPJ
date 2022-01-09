@@ -1,0 +1,33 @@
+.page-header{
+  margin-top: 0px;
+}
+
+#header{
+  background-color:#0369B9;
+  border-bottom: 5px solid #3F888F;
+}
+
+#texto-header{
+  margin-top: 0px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+#SR{
+  color: White;
+}
+
+#titulo{
+  color: white;
+  margin: auto;
+}
+
+#formulario{
+  width:50%;
+  margin: auto;
+  padding-top: 20px;
+}
+
+.help-block {
+  color: red;
+}
