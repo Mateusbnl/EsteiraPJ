@@ -1,31 +1,31 @@
 <?php
 
-// file name
+// Nome do Arquivo
 $filename = $_FILES['file']['name'];
 
-// Location
+// Localização
 $caminho = (string)$_POST['idcontrato'];
 mkdir("upload/".$caminho,0777,true);
 
 $location = 'upload/'.$caminho.'/'.$filename;
 
-// file extension
+// Extensão
 $file_extension = pathinfo($location, PATHINFO_EXTENSION);
 $file_extension = strtolower($file_extension);
 
-// Valid image extensions
+//Extensões válidas
 $image_ext = array("pdf","zip");
 
 $response = 0;
 if(in_array($file_extension,$image_ext)){
-  // Upload file
+  // Upload de Arquivo
   if(move_uploaded_file($_FILES['file']['tmp_name'],$location)){
     $response = $location;
   }
 }
 
 $serverName = "DESKTOP-GKMDHDU";
-$connectionInfo = array( "Database"=>"EsteiraPJ", "UID"=>"sa", "PWD"=>"706288");
+$connectionInfo = array( "Database"=>"EsteiraPJ", "UID"=>"", "PWD"=>"");
 
 $conn = sqlsrv_connect($serverName,$connectionInfo);
 
@@ -51,6 +51,7 @@ if($conn){
             }
         }
     }
+    
 }else{
   Echo"Não conectou :( <br>";
   die(print_r(sqlsrv_errors(),true));

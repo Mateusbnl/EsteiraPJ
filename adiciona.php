@@ -2,7 +2,7 @@
 
 
 $serverName = "DESKTOP-GKMDHDU";
-$connectionInfo = array( "Database"=>"EsteiraPJ", "UID"=>"sa", "PWD"=>"706288");
+$connectionInfo = array( "Database"=>"EsteiraPJ", "UID"=>"", "PWD"=>"");
 
 $conn = sqlsrv_connect($serverName,$connectionInfo);
 
