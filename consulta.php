@@ -3,7 +3,7 @@
 $cnpj = $_POST["cnpj"];
 
 $serverName = "DESKTOP-GKMDHDU";
-$connectionInfo = array( "Database"=>"EsteiraPJ", "UID"=>"", "PWD"=>"");
+$connectionInfo = array( "Database"=>"EsteiraPJ", "UID"=>"sa", "PWD"=>"706288");
 
 $conn = sqlsrv_connect($serverName,$connectionInfo);
 

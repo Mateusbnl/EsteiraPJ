@@ -1,19 +1,17 @@
-consulta();
 
+$('.Operação').empty();
+$.ajax({
+  type:'POST',
+  url:'consultaproprios.php',
+  data: {action:'consultar'}
+}).done(function(data){
+  data.forEach(function(op){
+    adicionaOpNaTabela(op);
+  });
+}).fail(function(jqXHR, textStatus){
+  console.log("Algo deu errado: " + textStatus);
+});
   
-  function consulta(){
-    $('.Operação').empty();
-      $.ajax({
-        type:'POST',
-        url:'consultaproprios.php',
-      }).done(function(data){
-        data.forEach(function(op){
-          adicionaOpNaTabela(op);
-        });
-      }).fail(function(jqXHR, textStatus){
-        console.log("Algo deu errado: " + textStatus);
-      });
-    }
   
   function adicionaOpNaTabela(op){
     var tabela = document.querySelector("#corpo");
@@ -61,13 +59,21 @@ consulta();
     var icon2 = document.createElement("span");
     icon2.className = "glyphicon glyphicon-remove";
     botaoex.className = "btn btn-default";
-    botaoex.setAttribute('href',op.caminho);
+    botaoex.setAttribute('id',op.id)
+    botaoex.addEventListener("click", function(event){
+      $.ajax({
+        url: "consultaproprios.php",
+        type: "post",
+        data: {"id":  op.id, action: 'deletar' },
+        success: location.reload()
+      });
+    });
 
   
     botao.appendChild(icon);
     botaoac.appendChild(icon1);
     botaoex.appendChild(icon2);
-    // remove(botao);
+
     operacaoTr.appendChild(botao);
     operacaoTr.appendChild(botaoac);
     operacaoTr.appendChild(botaoex);

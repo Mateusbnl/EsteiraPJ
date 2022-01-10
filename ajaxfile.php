@@ -25,7 +25,7 @@ if(in_array($file_extension,$image_ext)){
 }
 
 $serverName = "DESKTOP-GKMDHDU";
-$connectionInfo = array( "Database"=>"EsteiraPJ", "UID"=>"", "PWD"=>"");
+$connectionInfo = array( "Database"=>"EsteiraPJ", "UID"=>"sa", "PWD"=>"706288");
 
 $conn = sqlsrv_connect($serverName,$connectionInfo);
 
@@ -51,7 +51,7 @@ if($conn){
             }
         }
     }
-    
+
 }else{
   Echo"Não conectou :( <br>";
   die(print_r(sqlsrv_errors(),true));
